@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		79CAF4E51805B851670A5658 /* Pods_liveApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AD155A089B8FF5E650C948 /* Pods_liveApp.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		041C57BC2FFE2D7F00F47F02 /* liveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = liveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCA93B2359AE5F5DEBF2B87 /* Pods-liveApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liveApp.debug.xcconfig"; path = "Target Support Files/Pods-liveApp/Pods-liveApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DDA15F1114FD1CEE8DC8FE4F /* Pods-liveApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liveApp.release.xcconfig"; path = "Target Support Files/Pods-liveApp/Pods-liveApp.release.xcconfig"; sourceTree = "<group>"; };
+		F0AD155A089B8FF5E650C948 /* Pods_liveApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liveApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CAF4E51805B851670A5658 /* Pods_liveApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				041C57BE2FFE2D7F00F47F02 /* liveApp */,
 				041C57BD2FFE2D7F00F47F02 /* Products */,
+				6EE28C97122EE62D288DAE03 /* Pods */,
+				58849922E92158317EDA4724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		58849922E92158317EDA4724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0AD155A089B8FF5E650C948 /* Pods_liveApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EE28C97122EE62D288DAE03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA93B2359AE5F5DEBF2B87 /* Pods-liveApp.debug.xcconfig */,
+				DDA15F1114FD1CEE8DC8FE4F /* Pods-liveApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041C57CF2FFE2D8100F47F02 /* Build configuration list for PBXNativeTarget "liveApp" */;
 			buildPhases = (
+				DC5863584563B9C1540E943F /* [CP] Check Pods Manifest.lock */,
 				041C57B82FFE2D7F00F47F02 /* Sources */,
 				041C57B92FFE2D7F00F47F02 /* Frameworks */,
 				041C57BA2FFE2D7F00F47F02 /* Resources */,
+				A3213C68AC26DCF0CAC39327 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				041C57BE2FFE2D7F00F47F02 /* liveApp */,
 			);
 			name = liveApp;
-			packageProductDependencies = (
-			);
 			productName = liveApp;
 			productReference = 041C57BC2FFE2D7F00F47F02 /* liveApp.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A3213C68AC26DCF0CAC39327 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-liveApp/Pods-liveApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-liveApp/Pods-liveApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-liveApp/Pods-liveApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC5863584563B9C1540E943F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-liveApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		041C57B82FFE2D7F00F47F02 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +213,7 @@
 /* Begin XCBuildConfiguration section */
 		041C57D02FFE2D8100F47F02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCA93B2359AE5F5DEBF2B87 /* Pods-liveApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -171,6 +245,7 @@
 		};
 		041C57D12FFE2D8100F47F02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDA15F1114FD1CEE8DC8FE4F /* Pods-liveApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -237,7 +312,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -300,7 +375,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
