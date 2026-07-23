@@ -109,6 +109,30 @@ actor NetworkClient {
             throw NetworkError.business(code: envelope.code, message: envelope.message)
         }
     }
+
+    /// HTTP 校验后返回原始 JSON（整段响应体，不解信封、不校验业务码）。
+    func requestJSON<Target: TargetType>(_ target: Target) async throws -> Any {
+        let response = try await request(target)
+        let filtered: Response
+        do {
+            filtered = try response.filterSuccessfulStatusCodes()
+        } catch {
+            throw NetworkError.map(error)
+        }
+
+        guard !filtered.data.isEmpty else {
+            throw NetworkError.decoding(message: "Response data is empty")
+        }
+
+        do {
+            return try JSONSerialization.jsonObject(
+                with: filtered.data,
+                options: [.fragmentsAllowed]
+            )
+        } catch {
+            throw NetworkError.decoding(message: error.localizedDescription)
+        }
+    }
 }
 
 // MARK: - ContinuableRequestBridge
