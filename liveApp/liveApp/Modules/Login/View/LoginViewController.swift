@@ -11,6 +11,7 @@ final class LoginViewController: UIViewController {
     private let smsCodeField = UITextField()
     private let usernameField = UITextField()
     private let loginButton = UIButton(type: .system)
+    private let quickLoginButton = UIButton(type: .system)
     private let mockButton = UIButton(type: .system)
     private let resultLabel = UILabel()
     private let stackView = UIStackView()
@@ -29,8 +30,18 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "登录"
+        setupNavigationBar()
         setupUI()
         setupViewModel()
+    }
+
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "关闭",
+            style: .plain,
+            target: self,
+            action: #selector(closeTapped)
+        )
     }
 
     private func setupViewModel() {
@@ -69,6 +80,10 @@ final class LoginViewController: UIViewController {
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
 
+        quickLoginButton.setTitle("一键登录", for: .normal)
+        quickLoginButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        quickLoginButton.addTarget(self, action: #selector(quickLoginTapped), for: .touchUpInside)
+
         mockButton.setTitle("模拟请求 (postman-echo GET)", for: .normal)
         mockButton.titleLabel?.font = .systemFont(ofSize: 16)
         mockButton.addTarget(self, action: #selector(mockTapped), for: .touchUpInside)
@@ -88,6 +103,7 @@ final class LoginViewController: UIViewController {
         stackView.addArrangedSubview(smsCodeField)
         stackView.addArrangedSubview(usernameField)
         stackView.addArrangedSubview(loginButton)
+        stackView.addArrangedSubview(quickLoginButton)
         stackView.addArrangedSubview(mockButton)
         stackView.addArrangedSubview(resultLabel)
         view.addSubview(stackView)
@@ -105,10 +121,25 @@ final class LoginViewController: UIViewController {
         viewModel?.login(mobile: params.mobile, smsCode: params.smsCode, username: params.username)
     }
 
+    @objc private func quickLoginTapped() {
+        view.endEditing(true)
+        finishLogin()
+    }
+
+    @objc private func closeTapped() {
+        view.endEditing(true)
+        dismiss(animated: true)
+    }
+
     @objc private func mockTapped() {
         view.endEditing(true)
         // https://postman-echo.com/get?name=zhangsan&id=123
         viewModel?.mockPostmanEchoGet(name: "zhangsan", id: "123")
+    }
+
+    /// 登录完成，关闭弹窗回到首页。
+    private func finishLogin() {
+        dismiss(animated: true)
     }
 
     private func validatedParams() -> (mobile: String, smsCode: String, username: String)? {
@@ -130,6 +161,7 @@ final class LoginViewController: UIViewController {
 
         let loading = viewModel.isLoading
         loginButton.isEnabled = !loading
+        quickLoginButton.isEnabled = !loading
         mockButton.isEnabled = !loading
         loginButton.setTitle(loading ? "登录中…" : "登录", for: .normal)
         mockButton.setTitle(loading ? "请求中…" : "模拟请求 (postman-echo GET)", for: .normal)
@@ -146,16 +178,8 @@ final class LoginViewController: UIViewController {
             return
         }
 
-        if let user = viewModel.userInfo {
-            resultLabel.textColor = .label
-            resultLabel.text = """
-            登录成功
-            userId: \(user.userId)
-            username: \(user.username)
-            mobile: \(user.mobile)
-            nickname: \(user.nickname)
-            avatar: \(user.avatarUrl ?? "—")
-            """
+        if viewModel.userInfo != nil {
+            finishLogin()
             return
         }
 

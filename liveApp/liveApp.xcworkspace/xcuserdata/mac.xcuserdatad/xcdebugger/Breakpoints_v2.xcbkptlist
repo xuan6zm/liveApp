@@ -18,36 +18,6 @@
             endingLineNumber = "63"
             landmarkName = "login(mobile:smsCode:username:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A51F7F4A-6A65-4F9F-A7A5-89183CD35648 - 1e7a92c55ff7a307"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-               <Location
-                  uuid = "A51F7F4A-6A65-4F9F-A7A5-89183CD35648 - f7874d46c2c04106"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
