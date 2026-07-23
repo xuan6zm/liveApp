@@ -112,50 +112,6 @@
             endingLineNumber = "57"
             landmarkName = "login(mobile:smsCode:username:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3BB8CF23-CE69-4C8F-9D67-91EC023DF575 - 77512893e6630280"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58">
-               </Location>
-               <Location
-                  uuid = "3BB8CF23-CE69-4C8F-9D67-91EC023DF575 - 1d10959ed805ee76"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58">
-               </Location>
-               <Location
-                  uuid = "3BB8CF23-CE69-4C8F-9D67-91EC023DF575 - 6ab6d3ce395e78aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -172,36 +128,6 @@
             endingLineNumber = "60"
             landmarkName = "login(mobile:smsCode:username:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8D444344-D211-4E97-8AAE-166D491F9B77 - 6ab6d3ce395e672e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62">
-               </Location>
-               <Location
-                  uuid = "8D444344-D211-4E97-8AAE-166D491F9B77 - e3d6a4d453057600"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in liveApp.DemoViewModel.login(mobile: Swift.String, smsCode: Swift.String, username: Swift.String) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/ViewModel/DemoViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,7 +166,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C72BFA67-120A-4AB9-B4F1-89969BA29D4F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Network/Error/NetworkError.swift"
@@ -256,7 +182,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CBE8F4A7-8341-4D91-A023-2B2BE0492ED1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Network/Plugin/DebugLoggerPlugin.swift"
@@ -271,31 +197,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "39070172-A4FD-42B2-B237-76E4E177C08E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "liveApp/Network/Plugin/DebugLoggerPlugin.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "didReceive(_:target:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A25D94C5-69E4-4CD9-8242-D82512FF2F32"
+            uuid = "C82DA575-441A-4323-82E6-5F9551FBCDDF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Network/Target/DemoAPI.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "sampleData"
             landmarkType = "24">
          </BreakpointContent>
@@ -303,16 +213,78 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D91B9CB0-784D-46F0-9CA9-D1727C1456DE"
+            uuid = "52E97FC6-21C1-4306-997C-EA7F89E07477"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "liveApp/Network/Plugin/DebugLoggerPlugin.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "didReceive(_:target:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "52E97FC6-21C1-4306-997C-EA7F89E07477 - da2a32ae57b77556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "liveApp.DebugLoggerPlugin.didReceive(_: Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;, target: Moya.TargetType) -&gt; ()"
+                  moduleName = "liveApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/Network/Plugin/DebugLoggerPlugin.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24">
+               </Location>
+               <Location
+                  uuid = "52E97FC6-21C1-4306-997C-EA7F89E07477 - da2a32ae57b77556"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "liveApp.DebugLoggerPlugin.didReceive(_: Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;, target: Moya.TargetType) -&gt; ()"
+                  moduleName = "liveApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/Network/Plugin/DebugLoggerPlugin.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26D8D6BC-45E5-4E13-9628-25331EF957AE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "refreshResultUI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C8F248EB-8072-4220-A143-3F3FCC04DAE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "liveApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "loginTapped()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

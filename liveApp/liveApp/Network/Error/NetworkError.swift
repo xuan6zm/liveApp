@@ -26,8 +26,8 @@ nonisolated enum NetworkError: Error, Sendable, LocalizedError {
             return "服务器异常（\(statusCode)）"
         case let .business(_, message):
             return message.isEmpty ? "业务处理失败" : message
-        case .decoding:
-            return "数据解析失败"
+        case let .decoding(message):
+            return message.isEmpty ? "数据解析失败" : "数据解析失败：\(message)"
         case let .underlying(message):
             return message.isEmpty ? "网络请求失败" : message
         }

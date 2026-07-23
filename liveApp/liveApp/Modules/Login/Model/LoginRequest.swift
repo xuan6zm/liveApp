@@ -1,6 +1,6 @@
 import Foundation
 
-/// 登录请求参数：手机号、验证码、用户名。
+/// 登录请求参数。
 nonisolated struct LoginRequest: Encodable, Sendable {
     let mobile: String
     let smsCode: String

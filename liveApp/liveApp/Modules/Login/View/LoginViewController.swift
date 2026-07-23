@@ -1,17 +1,10 @@
-//
-//  ViewController.swift
-//  liveApp
-//
-//  Created by mac on 2026/7/8.
-//
-
-import Moya
 import UIKit
 
+/// 登录页：手机号 / 验证码 / 用户名。
 @MainActor
-final class ViewController: UIViewController {
-    private let sessionStore = SessionStore()
-    private var demoViewModel: DemoViewModel?
+final class LoginViewController: UIViewController {
+    private let sessionStore: SessionStore
+    private var viewModel: LoginViewModel?
 
     private let mobileField = UITextField()
     private let smsCodeField = UITextField()
@@ -19,54 +12,59 @@ final class ViewController: UIViewController {
     private let loginButton = UIButton(type: .system)
     private let resultLabel = UILabel()
 
+    init(sessionStore: SessionStore = SessionStore()) {
+        self.sessionStore = sessionStore
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        self.sessionStore = SessionStore()
+        super.init(coder: coder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setupLoginUI()
-        setupDemoNetwork()
+        title = "登录"
+        setupUI()
+        setupViewModel()
     }
 
-    private func setupDemoNetwork() {
-        #if DEBUG
-        // immediatelyStub：用 DemoAPI.sampleData 验收，不依赖真实后端
-        let client = NetworkClient(
-            sessionStore: sessionStore,
-            stubClosure: MoyaProvider.immediatelyStub
-        )
-        let service = DemoService(client: client)
-        let viewModel = DemoViewModel(demoService: service, sessionStore: sessionStore)
+    private func setupViewModel() {
+        let client = NetworkClient(sessionStore: sessionStore)
+        let authService = AuthService(client: client)
+        let viewModel = LoginViewModel(authService: authService, sessionStore: sessionStore)
         viewModel.onChange = { [weak self] in
-            self?.refreshResultUI()
+            self?.refreshUI()
         }
-        demoViewModel = viewModel
-        #endif
+        self.viewModel = viewModel
     }
 
-    private func setupLoginUI() {
+    private func setupUI() {
         mobileField.placeholder = "手机号"
         mobileField.keyboardType = .phonePad
         mobileField.borderStyle = .roundedRect
-        mobileField.text = "13800138000"
         mobileField.autocapitalizationType = .none
+        mobileField.textContentType = .telephoneNumber
 
         smsCodeField.placeholder = "验证码"
         smsCodeField.keyboardType = .numberPad
         smsCodeField.borderStyle = .roundedRect
-        smsCodeField.text = "123456"
+        smsCodeField.textContentType = .oneTimeCode
 
         usernameField.placeholder = "用户名"
         usernameField.borderStyle = .roundedRect
-        usernameField.text = "demo_user"
         usernameField.autocapitalizationType = .none
+        usernameField.textContentType = .username
 
-        loginButton.setTitle("登录（Stub 测试）", for: .normal)
+        loginButton.setTitle("登录", for: .normal)
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
 
         resultLabel.numberOfLines = 0
         resultLabel.textColor = .secondaryLabel
-        resultLabel.font = .monospacedSystemFont(ofSize: 13, weight: .regular)
-        resultLabel.text = "点击登录后，这里显示返回的用户信息"
+        resultLabel.font = .preferredFont(forTextStyle: .footnote)
+        resultLabel.text = "填写信息后点击登录"
 
         let stack = UIStackView(arrangedSubviews: [
             mobileField,
@@ -95,23 +93,23 @@ final class ViewController: UIViewController {
         let username = usernameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 
         guard !mobile.isEmpty, !smsCode.isEmpty, !username.isEmpty else {
-            resultLabel.text = "请填写手机号、验证码、用户名"
             resultLabel.textColor = .systemRed
+            resultLabel.text = "请填写手机号、验证码、用户名"
             return
         }
 
-        demoViewModel?.login(mobile: mobile, smsCode: smsCode, username: username)
+        viewModel?.login(mobile: mobile, smsCode: smsCode, username: username)
     }
 
-    private func refreshResultUI() {
-        guard let viewModel = demoViewModel else { return }
+    private func refreshUI() {
+        guard let viewModel else { return }
 
         loginButton.isEnabled = !viewModel.isLoading
-        loginButton.setTitle(viewModel.isLoading ? "登录中…" : "登录（Stub 测试）", for: .normal)
+        loginButton.setTitle(viewModel.isLoading ? "登录中…" : "登录", for: .normal)
 
         if let error = viewModel.errorMessage {
             resultLabel.textColor = .systemRed
-            resultLabel.text = "失败：\(error)"
+            resultLabel.text = error
             return
         }
 
@@ -123,13 +121,12 @@ final class ViewController: UIViewController {
             username: \(user.username)
             mobile: \(user.mobile)
             nickname: \(user.nickname)
-            avatar: \(user.avatarURL ?? "nil")
-            token: \(user.token)
+            avatar: \(user.avatarUrl ?? "—")
             """
             return
         }
 
         resultLabel.textColor = .secondaryLabel
-        resultLabel.text = viewModel.isLoading ? "请求中…" : "点击登录后，这里显示返回的用户信息"
+        resultLabel.text = viewModel.isLoading ? "请求中…" : "填写信息后点击登录"
     }
 }

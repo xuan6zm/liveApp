@@ -1,22 +1,19 @@
-import Alamofire
 import Foundation
 import Moya
+import Alamofire
 
-/// 示例 API：可按业务域继续拆分为 UserAPI / LiveAPI。
-nonisolated enum DemoAPI {
-    case streamInfo(id: String)
+/// 认证相关接口。
+nonisolated enum AuthAPI {
     case login(LoginRequest)
 }
 
-extension DemoAPI: TargetType {
+extension AuthAPI: TargetType {
     var baseURL: URL {
         APIHost.current.baseURL
     }
 
     var path: String {
         switch self {
-        case let .streamInfo(id):
-            return "/v1/streams/\(id)"
         case .login:
             return "/v1/auth/login"
         }
@@ -24,8 +21,6 @@ extension DemoAPI: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .streamInfo:
-            return .get
         case .login:
             return .post
         }
@@ -33,8 +28,6 @@ extension DemoAPI: TargetType {
 
     var task: Moya.Task {
         switch self {
-        case .streamInfo:
-            return .requestPlain
         case let .login(request):
             return .requestJSONEncodable(request)
         }
@@ -46,20 +39,6 @@ extension DemoAPI: TargetType {
 
     var sampleData: Data {
         switch self {
-        case let .streamInfo(id):
-            let json = """
-            {
-              "code": 0,
-              "message": "ok",
-              "data": {
-                "stream_id": "\(id)",
-                "url": "https://live.example.com/\(id).m3u8",
-                "buffer_time": 2.0
-              }
-            }
-            """
-            return Data(json.utf8)
-
         case let .login(request):
             let json = """
             {
