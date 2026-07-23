@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 /// 登录页：手机号 / 验证码 / 用户名。
 @MainActor
@@ -12,6 +13,7 @@ final class LoginViewController: UIViewController {
     private let loginButton = UIButton(type: .system)
     private let mockButton = UIButton(type: .system)
     private let resultLabel = UILabel()
+    private let stackView = UIStackView()
 
     init(sessionStore: SessionStore = SessionStore()) {
         self.sessionStore = sessionStore
@@ -80,24 +82,20 @@ final class LoginViewController: UIViewController {
         smsCodeField.text = "123456"
         usernameField.text = "testuser"
 
-        let stack = UIStackView(arrangedSubviews: [
-            mobileField,
-            smsCodeField,
-            usernameField,
-            loginButton,
-            mockButton,
-            resultLabel
-        ])
-        stack.axis = .vertical
-        stack.spacing = 12
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stack)
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.addArrangedSubview(mobileField)
+        stackView.addArrangedSubview(smsCodeField)
+        stackView.addArrangedSubview(usernameField)
+        stackView.addArrangedSubview(loginButton)
+        stackView.addArrangedSubview(mockButton)
+        stackView.addArrangedSubview(resultLabel)
+        view.addSubview(stackView)
 
-        NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24)
-        ])
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
+            make.leading.trailing.equalTo(view.layoutMarginsGuide)
+        }
     }
 
     @objc private func loginTapped() {

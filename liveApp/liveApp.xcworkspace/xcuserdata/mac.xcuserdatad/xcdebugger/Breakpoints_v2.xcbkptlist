@@ -262,7 +262,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "09998CED-BA76-4323-8219-FE764FC21070"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
@@ -278,7 +278,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "45CC9844-2FFC-43B2-A0E2-D0E6FD9FEF03"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
@@ -294,7 +294,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "877D03E8-D219-49F7-AE86-4D4701B2984D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
