@@ -10,6 +10,7 @@ final class LoginViewController: UIViewController {
     private let smsCodeField = UITextField()
     private let usernameField = UITextField()
     private let loginButton = UIButton(type: .system)
+    private let mockButton = UIButton(type: .system)
     private let resultLabel = UILabel()
 
     init(sessionStore: SessionStore = SessionStore()) {
@@ -33,7 +34,12 @@ final class LoginViewController: UIViewController {
     private func setupViewModel() {
         let client = NetworkClient(sessionStore: sessionStore)
         let authService = AuthService(client: client)
-        let viewModel = LoginViewModel(authService: authService, sessionStore: sessionStore)
+        let testService = TestService(client: client)
+        let viewModel = LoginViewModel(
+            authService: authService,
+            testService: testService,
+            sessionStore: sessionStore
+        )
         viewModel.onChange = { [weak self] in
             self?.refreshUI()
         }
@@ -61,16 +67,25 @@ final class LoginViewController: UIViewController {
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
         loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
 
+        mockButton.setTitle("模拟请求 (postman-echo GET)", for: .normal)
+        mockButton.titleLabel?.font = .systemFont(ofSize: 16)
+        mockButton.addTarget(self, action: #selector(mockTapped), for: .touchUpInside)
+
         resultLabel.numberOfLines = 0
         resultLabel.textColor = .secondaryLabel
         resultLabel.font = .preferredFont(forTextStyle: .footnote)
-        resultLabel.text = "填写信息后点击登录"
+        resultLabel.text = "填写信息后点击登录，或用模拟请求调试 GET 参数"
+
+        mobileField.text = "13800138000"
+        smsCodeField.text = "123456"
+        usernameField.text = "testuser"
 
         let stack = UIStackView(arrangedSubviews: [
             mobileField,
             smsCodeField,
             usernameField,
             loginButton,
+            mockButton,
             resultLabel
         ])
         stack.axis = .vertical
@@ -88,6 +103,17 @@ final class LoginViewController: UIViewController {
     @objc private func loginTapped() {
         view.endEditing(true)
 
+        guard let params = validatedParams() else { return }
+        viewModel?.login(mobile: params.mobile, smsCode: params.smsCode, username: params.username)
+    }
+
+    @objc private func mockTapped() {
+        view.endEditing(true)
+        // https://postman-echo.com/get?name=zhangsan&id=123
+        viewModel?.mockPostmanEchoGet(name: "zhangsan", id: "123")
+    }
+
+    private func validatedParams() -> (mobile: String, smsCode: String, username: String)? {
         let mobile = mobileField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let smsCode = smsCodeField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let username = usernameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -95,21 +121,30 @@ final class LoginViewController: UIViewController {
         guard !mobile.isEmpty, !smsCode.isEmpty, !username.isEmpty else {
             resultLabel.textColor = .systemRed
             resultLabel.text = "请填写手机号、验证码、用户名"
-            return
+            return nil
         }
 
-        viewModel?.login(mobile: mobile, smsCode: smsCode, username: username)
+        return (mobile, smsCode, username)
     }
 
     private func refreshUI() {
         guard let viewModel else { return }
 
-        loginButton.isEnabled = !viewModel.isLoading
-        loginButton.setTitle(viewModel.isLoading ? "登录中…" : "登录", for: .normal)
+        let loading = viewModel.isLoading
+        loginButton.isEnabled = !loading
+        mockButton.isEnabled = !loading
+        loginButton.setTitle(loading ? "登录中…" : "登录", for: .normal)
+        mockButton.setTitle(loading ? "请求中…" : "模拟请求 (postman-echo GET)", for: .normal)
 
         if let error = viewModel.errorMessage {
             resultLabel.textColor = .systemRed
             resultLabel.text = error
+            return
+        }
+
+        if let debugJSON = viewModel.debugJSONText {
+            resultLabel.textColor = .label
+            resultLabel.text = debugJSON
             return
         }
 
@@ -127,6 +162,8 @@ final class LoginViewController: UIViewController {
         }
 
         resultLabel.textColor = .secondaryLabel
-        resultLabel.text = viewModel.isLoading ? "请求中…" : "填写信息后点击登录"
+        resultLabel.text = loading
+            ? "请求中…"
+            : "填写信息后点击登录，或用模拟请求调试 GET 参数"
     }
 }

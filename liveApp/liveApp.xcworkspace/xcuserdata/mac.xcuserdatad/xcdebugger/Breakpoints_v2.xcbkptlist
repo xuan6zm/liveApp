@@ -224,36 +224,6 @@
             endingLineNumber = "24"
             landmarkName = "didReceive(_:target:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "52E97FC6-21C1-4306-997C-EA7F89E07477 - da2a32ae57b77556"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "liveApp.DebugLoggerPlugin.didReceive(_: Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;, target: Moya.TargetType) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/Network/Plugin/DebugLoggerPlugin.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24">
-               </Location>
-               <Location
-                  uuid = "52E97FC6-21C1-4306-997C-EA7F89E07477 - da2a32ae57b77556"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "liveApp.DebugLoggerPlugin.didReceive(_: Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;, target: Moya.TargetType) -&gt; ()"
-                  moduleName = "liveApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Documents/MyLiveApp/liveApp/liveApp/Network/Plugin/DebugLoggerPlugin.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -285,6 +255,54 @@
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "loginTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "09998CED-BA76-4323-8219-FE764FC21070"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "mockPostmanEchoGet(name:id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45CC9844-2FFC-43B2-A0E2-D0E6FD9FEF03"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "mockPostmanEchoGet(name:id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "877D03E8-D219-49F7-AE86-4D4701B2984D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "liveApp/Modules/Login/ViewModel/LoginViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "mockPostmanEchoGet(name:id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

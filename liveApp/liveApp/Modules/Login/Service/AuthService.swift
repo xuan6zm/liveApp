@@ -11,4 +11,8 @@ nonisolated struct AuthService: Sendable {
     func login(_ request: LoginRequest) async throws -> UserInfo {
         try await client.requestDecodable(AuthAPI.login(request))
     }
+    
+    func loginRawJson(_ request: LoginRequest) async throws -> UserInfo {
+        try await client.requestJSON(AuthAPI.login(request)) as! UserInfo
+    }
 }
